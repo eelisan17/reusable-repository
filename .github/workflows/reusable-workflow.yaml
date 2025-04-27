@@ -1,0 +1,19 @@
+name: Test Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        required: true
+        type: string
+
+jobs:
+  test_reusable_workflow:
+    runs-on: ubuntu-latest
+    environment: non-prod
+    steps:
+      - name: Run Reusable Workflow
+        env:
+          TEST_SECRET: ${{ secrets.REUSABLE_SECRETS }}
+        run: |
+          echo "Reusable secret test: $TEST_SECRET"
