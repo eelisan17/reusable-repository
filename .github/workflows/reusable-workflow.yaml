@@ -18,7 +18,9 @@ jobs:
       - name: Run Reusable Workflow
         env:
           TEST_SECRET: ${{ secrets.REUSABLE_SECRET }}
+          TEST_VARIABLE: ${{ env.REUSABLE_VARIABLE }}
           MESSAGE: ${{ inputs.message }}
         run: |
           echo "Input message: $MESSAGE"
+          echo "Reusable variable test: $TEST_VARIABLE"
           echo "Reusable secret test: $TEST_SECRET"
