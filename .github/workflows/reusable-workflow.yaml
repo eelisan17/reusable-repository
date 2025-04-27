@@ -6,9 +6,6 @@ on:
       message:
         required: true
         type: string
-    secrets:
-      REUSABLE_SECRET:
-        required: false
 
 jobs:
   test_reusable_workflow:
