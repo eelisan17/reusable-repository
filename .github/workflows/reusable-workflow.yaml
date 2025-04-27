@@ -6,9 +6,6 @@ on:
       message:
         required: true
         type: string
-    secrets:
-      REUSABLE_SECRET:
-        required: false
 
 jobs:
   test_reusable_workflow:
@@ -18,7 +15,7 @@ jobs:
       - name: Run Reusable Workflow
         env:
           TEST_SECRET: ${{ secrets.REUSABLE_SECRET }}
-          TEST_VARIABLE: ${{ env.REUSABLE_VARIABLE }}
+          TEST_VARIABLE: ${{ vars.REUSABLE_VARIABLE }}
           MESSAGE: ${{ inputs.message }}
         run: |
           echo "Input message: $MESSAGE"
